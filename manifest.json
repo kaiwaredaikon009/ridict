@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ridict",
+  "version": "0.1.0",
+  "description": "右クリックで選択した英単語を、設定した検索サイト（GET）で調べる拡張機能。",
+  "icons": {
+    "16": "icon2.png",
+    "48": "icon2.png",
+    "128": "icon2.png"
+  },
+  "permissions": ["contextMenus", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}

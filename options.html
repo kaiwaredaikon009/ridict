@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>ridict 設定</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 480px;
+        margin: 24px auto;
+        padding: 0 16px;
+        line-height: 1.6;
+      }
+      label {
+        display: block;
+        margin: 16px 0 4px;
+        font-weight: 600;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        font-size: 14px;
+      }
+      .hint {
+        color: #666;
+        font-size: 12px;
+        margin-top: 4px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 8px 20px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      #status {
+        color: #1a7f37;
+        min-height: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ridict 設定</h1>
+
+    <label for="baseUrl">検索サイトの URL</label>
+    <input id="baseUrl" type="url" placeholder="https://eow.alc.co.jp/search" />
+    <div class="hint">クエリパラメータを除いたベース URL（例: https://www.google.com/search）</div>
+
+    <label for="paramName">クエリパラメータ名</label>
+    <input id="paramName" type="text" placeholder="q" />
+    <div class="hint">検索語を渡すパラメータ名（例: ALC や Google は "q"）</div>
+
+    <button id="save">保存</button>
+    <p id="status"></p>
+
+    <script src="options.js"></script>
+  </body>
+</html>
