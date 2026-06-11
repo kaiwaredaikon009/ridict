@@ -43,6 +43,19 @@
       .dict-header h2 {
         font-size: 14px;
         margin: 0;
+        margin-right: auto;
+      }
+      .enabled-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin: 0 12px 0 0;
+        font-weight: normal;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .enabled-label input {
+        width: auto;
       }
       .dict-row {
         display: grid;
@@ -74,7 +87,10 @@
     <h1>ridict 設定</h1>
 
     <p class="hint">
-      辞書は最大 5 件まで登録できます。2 件以上あると、右クリックメニューに辞書名の一覧が表示されます。<br />
+      辞書は最大 5 件まで登録できます。「メニューに表示」が 2 件以上 ON
+      だと、右クリックメニューに辞書名の一覧が表示されます。<br />
+      OFF にするとメニューから消えますが、設定は保持されます（全部 OFF
+      にするとメニュー自体が出ません）。<br />
       検索 URL は「ベース URL?パラメータ名=単語」の形で開きます（例:
       https://eow.alc.co.jp/search?q=apple）。
     </p>
@@ -87,6 +103,7 @@
       <div class="dict">
         <div class="dict-header">
           <h2></h2>
+          <label class="enabled-label"><input class="enabled" type="checkbox" /> メニューに表示</label>
           <button class="remove" type="button">削除</button>
         </div>
         <div class="dict-row">

@@ -5,6 +5,7 @@ const DEFAULT_DICTS = [
     name: "英辞郎",
     baseUrl: "https://eow.alc.co.jp/search",
     paramName: "q",
+    enabled: true,
   },
 ];
 
@@ -19,6 +20,8 @@ function addRow(dict = { name: "", baseUrl: "", paramName: "" }) {
   row.querySelector(".name").value = dict.name;
   row.querySelector(".baseUrl").value = dict.baseUrl;
   row.querySelector(".paramName").value = dict.paramName;
+  // enabled が無い古いデータは ON 扱い（background.js の getDicts と同じ規則）。
+  row.querySelector(".enabled").checked = dict.enabled !== false;
   row.querySelector(".remove").addEventListener("click", () => {
     row.remove();
     renumber();
@@ -52,6 +55,7 @@ async function save() {
     const name = row.querySelector(".name").value.trim();
     const baseUrl = row.querySelector(".baseUrl").value.trim();
     const paramName = row.querySelector(".paramName").value.trim();
+    const enabled = row.querySelector(".enabled").checked;
     const label = row.querySelector("h2").textContent;
 
     if (!name || !baseUrl || !paramName) {
@@ -64,7 +68,7 @@ async function save() {
       showStatus(`${label}: URL の形式が正しくありません。`, true);
       return;
     }
-    dicts.push({ name, baseUrl, paramName });
+    dicts.push({ name, baseUrl, paramName, enabled });
   }
 
   await chrome.storage.sync.set({ dicts });
