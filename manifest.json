@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ridict",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "右クリックで選択した英単語を、設定した検索サイト（GET）で調べる拡張機能。",
   "icons": {
     "16": "icon2.png",
@@ -10,7 +10,14 @@
   },
   "permissions": ["contextMenus", "storage"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ridict@ikuiku.jp",
+      "strict_min_version": "121.0"
+    }
   },
   "options_ui": {
     "page": "options.html",

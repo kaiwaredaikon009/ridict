@@ -2,7 +2,8 @@
 
 right click to dictionary
 
-選択したテキストを右クリックし、ユーザーが設定した検索サイト（GET）を新規タブで開く Chrome 拡張機能。
+選択したテキストを右クリックし、ユーザーが設定した検索サイト（GET）を新規タブで開くブラウザ拡張機能。
+Chrome と Firefox の両方に対応（同一フォルダ・同一コード）。
 英和辞書向けに、選択範囲から半角英字のみを取り出して検索する。
 
 ## 構成
@@ -15,10 +16,21 @@ right click to dictionary
 
 ## インストール（開発用・未パッケージ）
 
-1. Chrome で `chrome://extensions` を開く
+### Chrome
+
+1. `chrome://extensions` を開く
 2. 右上の「**デベロッパー モード**」を ON
 3. 「**パッケージ化されていない拡張機能を読み込む**」をクリック
 4. このフォルダ（`manifest.json` のある場所）を選択
+
+### Firefox（121 以降）
+
+1. `about:debugging#/runtime/this-firefox` を開く
+2. 「**一時的なアドオンを読み込む**」をクリック
+3. このフォルダの `manifest.json` を選択
+
+※ Firefox の一時読み込みはブラウザを再起動すると消える。
+恒久的に使うには addons.mozilla.org（AMO）での署名が必要（自己利用でも同様）。
 
 ## 使い方
 
